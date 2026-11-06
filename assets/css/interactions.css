@@ -19,11 +19,11 @@
 }
 
 /* Typing line under the profile photo */
-.hero__photo-wrap { display: grid; gap: var(--space-4); justify-items: stretch; }
+.hero__photo-wrap { display: grid; gap: var(--space-5); justify-items: stretch; }
 .hero__typed {
   min-height: 3.2em; /* reserves two lines so the layout never jumps */
   font-size: var(--text-base); font-weight: 500; color: var(--on-dark);
-  text-align: left;
+  text-align: center;
 }
 .typed::after {
   content: ""; display: inline-block; width: 2px; height: 1.1em;
