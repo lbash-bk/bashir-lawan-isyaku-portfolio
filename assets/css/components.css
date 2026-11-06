@@ -1,0 +1,120 @@
+/* ==========================================================================
+   components.css: reusable pieces (buttons, tags, cards, timeline, etc.)
+   ========================================================================== */
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 44px; padding: 0 var(--space-5);
+  font: inherit; font-weight: 600; font-size: 0.9375rem; line-height: 1;
+  text-decoration: none; cursor: pointer;
+  border: 1px solid transparent; border-radius: var(--radius-btn);
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+/* On light backgrounds */
+.btn--primary { background: var(--btn-bg); color: var(--btn-ink); }
+.btn--primary:hover { background: var(--btn-bg-hover); color: var(--btn-ink); }
+.btn--secondary { background: transparent; color: var(--heading); border-color: var(--heading); }
+.btn--secondary:hover { background: var(--tag-bg); color: var(--heading); }
+/* On navy backgrounds (hero) */
+.btn--light { background: var(--accent-bright); color: var(--navy-900); }
+.btn--light:hover { background: #7ae6d9; color: var(--navy-900); }
+.btn--outline-light { background: transparent; color: var(--on-dark); border-color: rgba(255, 255, 255, 0.55); }
+.btn--outline-light:hover { background: rgba(255, 255, 255, 0.1); color: var(--on-dark); }
+
+/* ---------- Tags and badges ---------- */
+.tag-list { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.tag {
+  display: inline-block; padding: 0.2rem 0.6rem;
+  font-size: var(--text-sm); line-height: 1.5; font-weight: 500;
+  color: var(--tag-ink); background: var(--tag-bg);
+  border-radius: var(--radius-tag);
+}
+/* A skill you are still learning: dashed outline instead of fill */
+.tag--learning { background: transparent; border: 1px dashed var(--ink-muted); }
+
+.badge {
+  display: inline-block; padding: 0.15rem 0.6rem;
+  font-size: var(--text-sm); font-weight: 600; border-radius: 999px;
+}
+.badge--progress { color: var(--amber-ink); background: var(--amber-soft); }
+.badge--live { color: var(--accent); background: var(--accent-soft); }
+
+/* ---------- Generic card ---------- */
+.card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  padding: var(--space-5);
+}
+.card h3 { margin-bottom: var(--space-3); }
+
+/* Skill group = card with a heading and tags */
+.skill-group .tag-list { margin-top: var(--space-3); }
+
+/* ---------- Project card ---------- */
+.project-card {
+  display: flex; flex-direction: column;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  transition: border-color 0.15s ease;
+}
+.project-card:hover, .project-card:focus-within { border-color: var(--navy-700); }
+.project-card__thumb {
+  aspect-ratio: 16 / 10; background: var(--paper-alt);
+  border-bottom: 1px solid var(--line);
+  display: grid; place-items: center; text-align: center;
+  padding: var(--space-4); color: var(--ink-muted); font-size: var(--text-sm);
+}
+.project-card__thumb img { width: 100%; height: 100%; object-fit: cover; }
+.project-card__body { display: flex; flex-direction: column; gap: var(--space-3); padding: var(--space-5); flex: 1; }
+.project-card__meta { display: flex; flex-wrap: wrap; gap: var(--space-2); align-items: center; font-size: var(--text-sm); color: var(--ink-muted); }
+.project-card__summary { color: var(--ink-muted); font-size: 0.9688rem; }
+.project-card__actions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: auto; padding-top: var(--space-3); }
+
+/* ---------- Experience / education entries (a real sequence) ---------- */
+.timeline { border-left: 2px solid var(--line); padding-left: var(--space-5); display: grid; gap: var(--space-6); }
+.timeline__item { position: relative; }
+.timeline__item::before {
+  content: ""; position: absolute; left: calc(-1 * var(--space-5) - 7px); top: 0.55rem;
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--paper); border: 2px solid var(--navy-700);
+}
+.timeline__title { margin-bottom: var(--space-1); }
+.timeline__meta { color: var(--ink-muted); font-size: var(--text-sm); margin-bottom: var(--space-3); }
+.timeline__list { display: grid; gap: var(--space-2); padding-left: 1.1rem; list-style: disc; max-width: var(--measure); }
+
+/* ---------- Certificates ---------- */
+.cert-list { display: grid; gap: 0; border-top: 1px solid var(--line); }
+.cert-list__item {
+  display: grid; gap: var(--space-1);
+  padding: var(--space-4) 0; border-bottom: 1px solid var(--line);
+}
+.cert-list__name { font-weight: 600; color: var(--heading); }
+.cert-list__meta { color: var(--ink-muted); font-size: var(--text-sm); }
+@media (min-width: 40rem) {
+  .cert-list__item { grid-template-columns: 1fr auto; align-items: baseline; gap: var(--space-5); }
+}
+
+/* ---------- Case-study helpers ---------- */
+.case-meta {
+  display: grid; gap: var(--space-4);
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  padding: var(--space-5); background: var(--paper-alt);
+  border: 1px solid var(--line); border-radius: var(--radius-card);
+}
+.case-meta dt { font-size: var(--text-sm); color: var(--ink-muted); }
+.case-meta dd { font-weight: 600; color: var(--heading); }
+
+.callout {
+  border-left: 4px solid var(--accent);
+  background: var(--accent-soft);
+  padding: var(--space-4) var(--space-5);
+  border-radius: 0 var(--radius-btn) var(--radius-btn) 0;
+}
+.placeholder-note {
+  border: 1px dashed var(--ink-muted); border-radius: var(--radius-card);
+  padding: var(--space-5); color: var(--ink-muted); font-size: var(--text-sm);
+}

@@ -1,0 +1,100 @@
+/* ==========================================================================
+   interactions.css: styles for the dynamic features (see main.js)
+   ========================================================================== */
+
+/* Header controls */
+.header-actions { display: flex; align-items: center; gap: var(--space-2); }
+.theme-toggle {
+  min-height: 44px; min-width: 44px; padding: 0 var(--space-3);
+  font: inherit; font-size: var(--text-sm); font-weight: 500;
+  color: var(--heading); background: transparent;
+  border: 1px solid var(--line); border-radius: var(--radius-btn); cursor: pointer;
+}
+.theme-toggle:hover { border-color: var(--ink-muted); }
+
+/* Active section link in the navigation (set by scrollspy) */
+@media (min-width: 52rem) {
+  .nav__link { border-bottom: 2px solid transparent; }
+  .nav__link[aria-current="true"] { border-bottom-color: var(--accent); }
+}
+
+/* Typing line under the profile photo */
+.hero__photo-wrap { display: grid; gap: var(--space-4); justify-items: stretch; }
+.hero__typed {
+  min-height: 3.2em; /* reserves two lines so the layout never jumps */
+  font-size: var(--text-base); font-weight: 500; color: var(--on-dark);
+  text-align: left;
+}
+.typed::after {
+  content: ""; display: inline-block; width: 2px; height: 1.1em;
+  margin-left: 2px; vertical-align: text-bottom;
+  background: var(--accent-bright); animation: blink 1s steps(1) infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
+
+/* Scroll reveal: only when JavaScript is running, and only once per element */
+.js .reveal { opacity: 0; transform: translateY(10px); transition: opacity 0.45s ease, transform 0.45s ease; }
+.js .reveal.is-visible { opacity: 1; transform: none; }
+
+/* Project filter */
+.filter-bar { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-5); }
+.filter-btn {
+  min-height: 44px; padding: 0 var(--space-4);
+  font: inherit; font-size: var(--text-sm); font-weight: 600;
+  color: var(--heading); background: transparent;
+  border: 1px solid var(--line); border-radius: 999px; cursor: pointer;
+}
+.filter-btn:hover { border-color: var(--ink-muted); }
+.filter-btn[aria-pressed="true"] { background: var(--btn-bg); color: var(--btn-ink); border-color: var(--btn-bg); }
+.project-card[hidden] { display: none; }
+
+/* About: two columns on wide screens */
+.about-grid { display: grid; gap: var(--space-6); }
+@media (min-width: 52rem) { .about-grid { grid-template-columns: 1.4fr 0.8fr; gap: var(--space-8); } }
+.facts { display: grid; gap: var(--space-4); }
+.facts dt { font-size: var(--text-sm); color: var(--ink-muted); }
+.facts dd { font-weight: 500; color: var(--heading); }
+
+/* Additional certificates (collapsible) */
+.more { margin-top: var(--space-4); }
+.more summary {
+  cursor: pointer; font-weight: 600; color: var(--accent);
+  min-height: 44px; display: flex; align-items: center;
+}
+.more .cert-list { border-top: 0; }
+
+/* Contact */
+.contact-actions { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+.copy-status { color: var(--on-dark-muted); font-size: var(--text-sm); margin-top: var(--space-3); min-height: 1.5em; }
+
+/* Back to top */
+.to-top {
+  position: fixed; right: var(--space-4); bottom: var(--space-4); z-index: 40;
+  min-height: 44px; min-width: 44px; padding: 0 var(--space-4);
+  font: inherit; font-size: var(--text-sm); font-weight: 600;
+  color: var(--btn-ink); background: var(--btn-bg);
+  border: 0; border-radius: 999px; cursor: pointer;
+  opacity: 0; pointer-events: none; transition: opacity 0.2s ease;
+}
+.to-top.is-shown { opacity: 1; pointer-events: auto; }
+
+/* Case-study page */
+.case-hero { background: var(--navy-900); color: var(--on-dark); padding-block: clamp(2.5rem, 6vw, 4rem); }
+.case-hero h1 { color: var(--on-dark); margin-bottom: var(--space-3); max-width: 24ch; }
+.case-hero p { color: var(--on-dark-muted); font-size: var(--text-lg); }
+.case-hero a.back { display: inline-block; margin-bottom: var(--space-4); color: var(--on-dark); font-size: var(--text-sm); }
+.case-hero .project-card__actions { padding-top: var(--space-5); }
+.case-section { margin-top: var(--space-7); }
+.case-section h2 { margin-bottom: var(--space-4); }
+.case-section ul { display: grid; gap: var(--space-2); padding-left: 1.1rem; list-style: disc; max-width: var(--measure); }
+.case-nav { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-4); margin-top: var(--space-8); padding-top: var(--space-5); border-top: 1px solid var(--line); }
+
+/* Project grid: 2 columns so four cards form a tidy 2x2 */
+.grid--projects { grid-template-columns: 1fr; }
+@media (min-width: 40rem) { .grid--projects { grid-template-columns: repeat(2, 1fr); } }
+
+/* Header: brand left, navigation and theme button grouped on the right (desktop) */
+@media (min-width: 52rem) {
+  .nav { order: 2; margin-left: auto; margin-right: var(--space-4); }
+  .header-actions { order: 3; }
+}
