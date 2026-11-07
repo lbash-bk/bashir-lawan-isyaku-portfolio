@@ -30,7 +30,7 @@ var PROJECTS = [
       { heading: 'Key findings', pending: true, note: 'Add your findings with the real numbers (for example revenue by region or category).' },
       { heading: 'Dashboard screenshots', pending: true, note: 'Add screenshots to assets/images/projects/ and list them in the screenshots field.' }
     ],
-    screenshots: []
+    screenshots: ['assets/images/projects/sales_performance_dashboard.png', 'assets/images/projects/sales_performance_dashboard_2.png']
   },
   {
     id: 'bootcamp-sales-data-analysis',
