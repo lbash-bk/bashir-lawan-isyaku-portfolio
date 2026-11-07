@@ -27,10 +27,11 @@ var PROJECTS = [
       { heading: 'Business problem', pending: true, note: 'Describe the business questions this analysis answers.' },
       { heading: 'Data preparation', items: ['Cleaned and standardized e-commerce sales data using Python and Pandas.'] },
       { heading: 'Analysis', items: ['Analyzed revenue, profitability, product categories, regional performance and sales channels to identify business patterns.', 'Built visualizations and a Power BI dashboard to communicate key performance indicators and findings.'] },
-      { heading: 'Key findings', pending: true, note: 'Add your findings with the real numbers (for example revenue by region or category).' },
-      { heading: 'Dashboard screenshots', pending: true, note: 'Add screenshots to assets/images/projects/ and list them in the screenshots field.' }
+      { heading: 'Key findings', pending: true, note: 'Add your findings with the real numbers (for example revenue by region or category).' }
     ],
-    screenshots: ['assets/images/projects/sales_performance_dashboard.png', 'assets/images/projects/sales_performance_dashboard_2.png']
+    screenshots: [
+      { src: 'assets/images/projects/sales_performance_dashboard.png', alt: 'Power BI dashboard for the sales performance analysis project', caption: 'Sales performance dashboard built in Power BI' }
+    ]
   },
   {
     id: 'bootcamp-sales-data-analysis',
@@ -45,15 +46,23 @@ var PROJECTS = [
       live: null,
       docs: null
     },
-    thumb: null,
+    thumb: 'assets/images/projects/sales_performance_and_management _audit_dashboard.png',
     sections: [
       { heading: 'Data preparation', items: ['Cleaned and prepared a sales transaction dataset using Python and Pandas.', 'Identified and removed 12 duplicate TransactionID records.', 'Investigated missing values in the Cost per Unit column and handled 31 missing records.'] },
       { heading: 'Analysis', items: ['Performed exploratory data analysis to investigate sales performance and business trends.', 'Developed a Power BI dashboard to communicate key performance indicators and analytical findings.', 'Completed and submitted the project within the bootcamp deadline.'] },
       { heading: 'Key findings', pending: true, note: 'Add findings and the total revenue figure here once confirmed.' },
       { heading: 'Dashboard screenshots', pending: true, note: 'Add dashboard screenshots.' }
     ],
-    screenshots: []
+    screenshots: [
+      { 
+        src: 'assets/images/projects/sales_performance_and_management _audit_dashboard.png', alt: 'Sales Performance Dashboard', caption: 'Sales Performance Dashboard'
+      },
+      {
+        src: 'assets/images/projects/data_quality and_audit_dashboard.png', alt: 'Data Quality and Audit Dashboard', caption: 'Data Quality and Audit Dashboard'
+      }
+    ]
   },
+  /*
   {
     id: 'bank-customer-churn-analysis',
     title: 'Bank Customer Churn Analysis',
@@ -71,6 +80,7 @@ var PROJECTS = [
     ],
     screenshots: []
   },
+  */
   {
     id: 'fud-study-hub',
     title: 'FUD Study Hub',
@@ -84,7 +94,7 @@ var PROJECTS = [
       live: 'https://fud-study-hub.onrender.com',
       docs: null
     },
-    thumb: null,
+    thumb: 'assets/images/projects/fud_study_hub.png',
     sections: [
       { heading: 'Problem', items: ['Students found it difficult to access lecture notes, past examination questions and other academic resources. I gathered user input to understand the problem before designing the solution.'] },
       { heading: 'My role', items: ['Founder, Project Manager and System Architect.', 'Designed and developed a centralized academic-resource platform.'] },
@@ -92,7 +102,29 @@ var PROJECTS = [
       { heading: 'Main features', items: ['User access (accounts).', 'Upload and download workflows for study materials.'] },
       { heading: 'Screenshots', pending: true, note: 'Add application screenshots.' }
     ],
-    screenshots: [],
+    screenshots: [
+      { 
+        src: 'assets/images/projects/fud_study_hub.png', alt: 'Home Page', caption: 'Home Page'
+      },
+      {
+        src: 'assets/images/projects/fud_study_hub_1.png', alt: 'Login Page', caption: 'Login Page'
+      },
+      {
+        src: 'assets/images/projects/fud_study_hub_2.png', alt: 'Departments List Page', caption: 'Departments List Page'
+      },
+      {
+        src: 'assets/images/projects/fud_study_hub_3.png', alt: 'Materials List Page', caption: 'Materials List Page'
+      },
+      {
+        src: 'assets/images/projects/fud_study_hub_4.png', alt: 'Admin Upload Page', caption: 'Admin Upload Page'
+      },
+      {
+        src: 'assets/images/projects/fud_study_hub_5.png', alt: 'Admin Upload Page', caption: 'Admin Upload Page'
+      },
+      {
+        src: 'assets/images/projects/fud_study_hub_6.png', alt: 'Admin Dashboard Page', caption: 'Admin Dashboard Page'
+      }
+    ],
     note: 'The live site runs on free hosting, so the first visit can take up to a minute to wake up.'
   }
 ];
@@ -208,9 +240,11 @@ function renderCaseStudy() {
 
   if (p.screenshots.length) {
     var shots = el('section', { 'class': 'case-section' }, [el('h2', { text: 'Screenshots' })]);
-    var grid = el('div', { 'class': 'grid grid--2' }, []);
+    var grid = el('div', { 'class': p.screenshots.length > 1 ? 'grid grid--2' : 'grid' }, []);
     p.screenshots.forEach(function (s) {
-      grid.appendChild(el('figure', {}, [el('img', { src: s.src, alt: s.alt, loading: 'lazy' }), el('figcaption', { text: s.caption || '' })]));
+      var img = el('img', { src: s.src, alt: s.alt, loading: 'lazy' });
+      var open = el('a', { href: s.src, target: '_blank', rel: 'noopener', 'aria-label': 'Open full-size image: ' + (s.caption || s.alt) }, [img]);
+      grid.appendChild(el('figure', {}, [open, el('figcaption', { text: s.caption || '' })]));
     });
     shots.appendChild(grid);
     body.appendChild(shots);
