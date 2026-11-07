@@ -46,7 +46,7 @@ var PROJECTS = [
       live: null,
       docs: null
     },
-    thumb: 'assets/images/projects/sales_performance_and_management _audit_dashboard.png',
+    thumb: 'assets/images/projects/sales_performance_and_management _audit_dashboard.PNG',
     sections: [
       { heading: 'Data preparation', items: ['Cleaned and prepared a sales transaction dataset using Python and Pandas.', 'Identified and removed 12 duplicate TransactionID records.', 'Investigated missing values in the Cost per Unit column and handled 31 missing records.'] },
       { heading: 'Analysis', items: ['Performed exploratory data analysis to investigate sales performance and business trends.', 'Developed a Power BI dashboard to communicate key performance indicators and analytical findings.', 'Completed and submitted the project within the bootcamp deadline.'] },
@@ -55,10 +55,10 @@ var PROJECTS = [
     ],
     screenshots: [
       { 
-        src: 'assets/images/projects/sales_performance_and_management _audit_dashboard.png', alt: 'Sales Performance Dashboard', caption: 'Sales Performance Dashboard'
+        src: 'assets/images/projects/sales_performance_and_management _audit_dashboard.PNG', alt: 'Sales Performance Dashboard', caption: 'Sales Performance Dashboard'
       },
       {
-        src: 'assets/images/projects/data_quality and_audit_dashboard.png', alt: 'Data Quality and Audit Dashboard', caption: 'Data Quality and Audit Dashboard'
+        src: 'assets/images/projects/data_quality and_audit_dashboard.PNG', alt: 'Data Quality and Audit Dashboard', caption: 'Data Quality and Audit Dashboard'
       }
     ]
   },
@@ -94,7 +94,7 @@ var PROJECTS = [
       live: 'https://fud-study-hub.onrender.com',
       docs: null
     },
-    thumb: 'assets/images/projects/fud_study_hub.png',
+    thumb: 'assets/images/projects/fud_study_hub.PNG',
     sections: [
       { heading: 'Problem', items: ['Students found it difficult to access lecture notes, past examination questions and other academic resources. I gathered user input to understand the problem before designing the solution.'] },
       { heading: 'My role', items: ['Founder, Project Manager and System Architect.', 'Designed and developed a centralized academic-resource platform.'] },
@@ -104,25 +104,25 @@ var PROJECTS = [
     ],
     screenshots: [
       { 
-        src: 'assets/images/projects/fud_study_hub.png', alt: 'Home Page', caption: 'Home Page'
+        src: 'assets/images/projects/fud_study_hub.PNG', alt: 'Home Page', caption: 'Home Page'
       },
       {
-        src: 'assets/images/projects/fud_study_hub_1.png', alt: 'Login Page', caption: 'Login Page'
+        src: 'assets/images/projects/fud_study_hub_1.PNG', alt: 'Login Page', caption: 'Login Page'
       },
       {
-        src: 'assets/images/projects/fud_study_hub_2.png', alt: 'Departments List Page', caption: 'Departments List Page'
+        src: 'assets/images/projects/fud_study_hub_2.PNG', alt: 'Departments List Page', caption: 'Departments List Page'
       },
       {
-        src: 'assets/images/projects/fud_study_hub_3.png', alt: 'Materials List Page', caption: 'Materials List Page'
+        src: 'assets/images/projects/fud_study_hub_3.PNG', alt: 'Materials List Page', caption: 'Materials List Page'
       },
       {
-        src: 'assets/images/projects/fud_study_hub_4.png', alt: 'Admin Upload Page', caption: 'Admin Upload Page'
+        src: 'assets/images/projects/fud_study_hub_4.PNG', alt: 'Admin Upload Page', caption: 'Admin Upload Page'
       },
       {
-        src: 'assets/images/projects/fud_study_hub_5.png', alt: 'Admin Upload Page', caption: 'Admin Upload Page'
+        src: 'assets/images/projects/fud_study_hub_5.PNG', alt: 'Admin Upload Page', caption: 'Admin Upload Page'
       },
       {
-        src: 'assets/images/projects/fud_study_hub_6.png', alt: 'Admin Dashboard Page', caption: 'Admin Dashboard Page'
+        src: 'assets/images/projects/fud_study_hub_6.PNG', alt: 'Admin Dashboard Page', caption: 'Admin Dashboard Page'
       }
     ],
     note: 'The live site runs on free hosting, so the first visit can take up to a minute to wake up.'
