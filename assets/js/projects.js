@@ -22,7 +22,7 @@ var PROJECTS = [
       live: null,
       docs: null
     },
-    thumb: null, // e.g. 'assets/images/projects/sales-dashboard.png'
+    thumb: 'assets/images/projects/sales_performance_dashboard.png',
     sections: [
       { heading: 'Business problem', pending: true, note: 'Describe the business questions this analysis answers.' },
       { heading: 'Data preparation', items: ['Cleaned and standardized e-commerce sales data using Python and Pandas.'] },
